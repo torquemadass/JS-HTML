@@ -8,8 +8,11 @@ let address = "Los Santos";
 // console.log(hobby);
 // console.log(address);
 
-const concat = "Hei, my name is " + name + "." + " I'm 24 Years old" + "." + "I like to " + hobby + "." + "I live in " + address;
+const currentYear = new Date().getFullYear();
+const age = currentYear - bornYear;
+
+const concat = "Hei, my name is " + name + ". I'm " + age + " years old. I like to " + hobby + ". I live in " + address;
 console.log(concat);
 
-const backtickConcat = `Hei, my name is ${name}. I am 24 years old. I like to  ${hobby} . I live in ${address}`;
+const backtickConcat = `Hei, my name is ${name}. I'm ${age} years old. I like to ${hobby}. I live in ${address}`;
 console.log(backtickConcat);
