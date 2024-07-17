@@ -14,7 +14,7 @@ let person = null;
 console.log(person);
 
 // Undefined
-let age;               s         // undefined
+let age;                         // undefined
 console.log(age);
 
 age = undefined;                // reassign undefined
