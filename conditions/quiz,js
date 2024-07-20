@@ -1,0 +1,34 @@
+/* Quiz 1:
+
+const applePrice = 10000;
+const grapePrice = 15000;
+const melonPrice = 20000;
+const strawberryPrice = 25000;
+const avocadoPrice = 30000;
+
+use case:
+Compare every fruit prices 1 by 1 and find the cheapest fruit (use nested if-else)
+
+*/
+
+/* Quiz 2:
+
+const targetDay = "Saturday";
+const currentDay = "Friday";
+
+
+use case:
+compare the currentDay with targetDay by using ternary. If the condition: 
+- If fulfilled then print(console.log) "it is a weekend".
+- If not fulfilled then print "It's a weekday" 
+
+*/
+
+/* Quiz 3:
+
+
+
+use case:
+
+
+*/
