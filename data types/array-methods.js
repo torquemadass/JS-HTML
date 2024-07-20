@@ -6,7 +6,7 @@
 // people[5] = "Abi"; // Old way to add new item in array
 // console.log(people);
 
-// Add new item on the back of the array
+// // Add new item on the back of the array
 // people.push("Yoga");
 // console.log(people);
 
@@ -29,27 +29,27 @@
 
 // String to Array (Looping satu satu)
 // Convert string to array
-// const animal = "Cat, Dog, Bird, Rat, Rabbit";
-// const arrayOfAnimals = animal.split(",").map(animal => animal.trim());
-// console.log(arrayOfAnimals);
+const animal = "Cat, Dog, Bird, Rat, Rabbit";
+const arrayOfAnimals = animal.split(",").map(animal => animal.trim());
+console.log(arrayOfAnimals);
 
 // use case looping and trim
-// const planets = "mars, Venus, Earth, Jupiter, Saturn, Frog";
-// const arrayOfPlanets = planets.split(",");
-// console.log(arrayOfPlanets);
+const planets = "mars, Venus, Earth, Jupiter, Saturn, Frog";
+const arrayOfPlanets = planets.split(",");
+console.log(arrayOfPlanets);
 
 // Array.join();
 // Convert Array intro string
 // const joinedArray = people.join(",");
 // console.log(joinedArray);
 
-// let trimmedPlanets = [];
+let trimmedPlanets = [];
 
-// for (const planet of arrayOfPlanets) {
-//     console.log(planets);
-//     const formattedPlanet = planet.trim();
-//     console.log(formattedPlanet);
-// }
+for (const planet of arrayOfPlanets) {
+    console.log(planets);
+    const formattedPlanet = planet.trim();
+    console.log(formattedPlanet);
+}
 
 // Array.slice();
 // If only 1 parameter it will start from the first index
@@ -69,3 +69,32 @@ console.log(lastIndex, "lastIndex");
 const anotherLastIndex = people[people.length -1];
 console.log(anotherLastIndex);
 
+// Array.splice();
+// ['Agif', 'Ihsan', 'Ghaniyo', 'Nisa', 'Adi', 'Abi']
+people.splice(2, 0, 'Eko'); // Adding Eko to index 2
+console.log(people, 'additionalPeople'); // ['Agif', 'Ihsan', 'Eko', 'Ghaniyo', 'Nisa', 'Adi', 'Abi']
+
+people.splice(3, 3, 'Yoga', 'Kelvin'); // Adding Yoga and Kelvin to index 3 then remove 3 items after it
+console.log(people); // [ 'Agif', 'Ihsan', 'Eko', 'Yoga', 'Kelvin', 'Abi' ]
+
+people.splice(3, 2); // Slicing Yoga and Kelvin (index 3)
+console.log(people); // [ 'Agif', 'Ihsan', 'Eko', 'Abi' ]
+
+// Use Case Looping and Trim
+// Complex One
+// const planets = 'Mars, Venus, Earth, Jupiter, Saturn, Frog';
+// const arrayOfPlanets = planets.split(',')
+// console.log(arrayOfPlanets); // [ 'Mars', ' Venus', ' Earth', ' Jupiter', ' Saturn', ' Frog' ]
+
+// let trimmedPlanets = [];
+
+
+// for (const planet of arrayOfPlanets) {
+//   // console.log(planet);
+//   const formattedPlanet = planet.trim();
+//   // console.log(formattedPlanet);
+//   trimmedPlanets.push(formattedPlanet);
+//   // console.log(trimmedPlanets);
+// }
+
+// console.log(trimmedPlanets); // [ 'Mars', 'Venus', 'Earth', 'Jupiter', 'Saturn', 'Frog' ]

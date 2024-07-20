@@ -67,3 +67,19 @@ if (1 === 1 || 1 === 2 || 1 === 4 || 1 === 5 || 1 === 1) {
     console.log(false);
 }
 
+// const email = 'johndoe@mail.com';
+// const password = 'john123';
+
+// const emailInput = 'johndoe@mail.com';
+// const passwordInput = '';
+
+// // Nested OR Operator
+// if (emailInput && passwordInput) {
+//   if (email === emailInput && password === passwordInput) {
+//     console.log('Login Successful');
+//   } else {
+//     console.log('Email or Password is invalid');
+//   }
+// } else {
+//   console.log('Email or Password is required');
+// }
