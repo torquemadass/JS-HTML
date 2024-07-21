@@ -11,6 +11,28 @@ const melonPrice = 20000;
 const strawberryPrice = 25000;
 const avocadoPrice = 30000;
 
+let cheapestFruit = 'Apple';
+let cheapestPrice = applePrice;
+
+if (grapePrice < cheapestPrice) {
+  cheapestFruit = 'Grape';
+  cheapestPrice = grapePrice;
+}
+if (melonPrice < cheapestPrice) {
+  cheapestFruit = 'Melon';
+  cheapestPrice = melonPrice;
+}
+if (strawberryPrice < cheapestPrice) {
+  cheapestFruit = 'Strawberry';
+  cheapestPrice = strawberryPrice;
+}
+if (avocadoPrice < cheapestPrice) {
+  cheapestFruit = 'Avocado';
+  cheapestPrice = avocadoPrice;
+}
+
+console.log(`The cheapest fruit is ${cheapestFruit} with a price of ${cheapestPrice}`);
+
 /*
 Quiz 2:
 
@@ -23,7 +45,8 @@ Compare the currentDay with targetDay by using ternary. If the condition is
 const targetDay = 'Saturday';
 const currentDay = 'Friday';
 
-const result = 'your code here'
+const result = (currentDay === targetDay) ? "It's a weekend" : "It's a weekday";
+console.log(result);
 
 /*
 Quiz 3: The Treasure Hunt (Using "AND")
