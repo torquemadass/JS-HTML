@@ -15,20 +15,12 @@ let cheapestFruit = 'Apple';
 let cheapestPrice = applePrice;
 
 if (grapePrice < cheapestPrice) {
-  cheapestFruit = 'Grape';
-  cheapestPrice = grapePrice;
-}
-if (melonPrice < cheapestPrice) {
-  cheapestFruit = 'Melon';
-  cheapestPrice = melonPrice;
-}
-if (strawberryPrice < cheapestPrice) {
-  cheapestFruit = 'Strawberry';
-  cheapestPrice = strawberryPrice;
-}
-if (avocadoPrice < cheapestPrice) {
-  cheapestFruit = 'Avocado';
-  cheapestPrice = avocadoPrice;
+  if (melonPrice > grapePrice) {
+    if (strawberryPrice > melonPrice) {
+      if (avocadoPrice > strawberryPrice) {
+    }
+    }
+  }
 }
 
 console.log(`The cheapest fruit is ${cheapestFruit} with a price of ${cheapestPrice}`);
@@ -68,6 +60,12 @@ Variables to start:
 let hasMap = true;
 let hasKey = true;
 
+if (hasMap && hasKey) {
+    console.log("The secret door opens, finaly we can find the hidden treasure!");
+  } else {
+    console.log("The secret door remains closed. You need both the map and the key.");
+  }
+
 /*
 Quiz 4: The Space Mission (Using "OR")
 Story:
@@ -87,3 +85,9 @@ Variables to start:
 
 let navSystem = false;
 let commSystem = true;
+
+if (navSystem || commSystem) {
+    console.log("We can attempt to land on the planet. At least one critical system is operational.");
+  } else {
+    console.log("Both critical systems are down. You cannot attempt to land on this planet.");
+  }
