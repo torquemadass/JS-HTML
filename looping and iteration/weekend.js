@@ -26,6 +26,15 @@ const paragraphs = [
   ];
   
   // Write a nested loop to calculate and print the total sales for each day.
+
+  
+  for (let i = 0; i < salesData.length; i++) {
+    let totalSales = 0;
+    for (let j = 0; j < salesData[i].length; j++) {
+            totalSales += salesData[i][j];
+        }
+        console.log(`Total sales for day ${i + 1}: ${totalSales.toFixed(2)}`);
+  }
   
   /* Expected Output:
   Total sales for day 1: 255.80
