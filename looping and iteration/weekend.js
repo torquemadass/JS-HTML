@@ -12,6 +12,8 @@ const paragraphs = [
         }
     }
     console.log(wordCount);
+
+    // the output is 28, regarding maybe on the expected output is a miscalculation
     
   /* Expected Output:
   Total word count: 22
