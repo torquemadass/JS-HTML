@@ -165,14 +165,7 @@ console.log("------------------");
   const exoticFruits = ['apricot', 'blueberry', 'citrus', 'dragonfruit'];
   
   // Write a nested loop to find and print elements in nestedArray that start with the same letter as any element in compareArray.
-  for (let i = 0; i < fruitBaskets.length; i++) {
-    for (let j = 0; j < fruitBaskets[i].length; j++) {
-      for (let k = 0; k < exoticFruits.length; k++) {
-        if (fruitBaskets[i][j].toLowerCase().startsWith(exoticFruits[k].toLowerCase))
-          console.log(fruitBaskets[i][j]);
-      }
-    }
-  }
+ 
 
   
   /* Expected Output:
