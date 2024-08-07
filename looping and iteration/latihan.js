@@ -17,13 +17,13 @@ for (let i = 0; i < favoriteFruits.length; i++) {
     }
 }
 
-for (const fruits in favoriteFruits)
+// for (const fruits in favoriteFruits)
 
-for (const fruit of fruits) {
-    console.log(fruit);
-    for (const favFruit of favoriteFruits) {
-        if (fruit === favFruit) {
-            console.log(favFruit, "for of");
-        }
-    }
-}
+// for (const fruit of fruits) {
+//     console.log(fruit);
+//     for (const favFruit of favoriteFruits) {
+//         if (fruit === favFruit) {
+//             console.log(favFruit, "for of");
+//         }
+//     }
+// }
