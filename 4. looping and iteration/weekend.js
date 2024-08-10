@@ -11,7 +11,9 @@ const paragraphs = [
         wordCount += paragraphs[i][j].split(' ').length;
         }
     }
-    console.log(wordCount);
+    console.log(wordCount, "Basic For");
+
+
 
 console.log("------------------");
 
@@ -166,7 +168,15 @@ console.log("------------------");
   
   // Write a nested loop to find and print elements in nestedArray that start with the same letter as any element in compareArray.
  
-
+  for (const basket of fruitBaskets) {
+    for (const fruit of basket) {
+      for (const exoticFruit of exoticFruits) {
+        if (fruit[0].toLowerCase() === exoticFruit[0].toLowerCase()) {
+          console.log(fruit);
+        }
+      }
+    }
+  }
   
   /* Expected Output:
   apple
