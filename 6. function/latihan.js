@@ -78,7 +78,12 @@ console.log(unreadyTasks, "V2");
 
 // V3 (Filter & Map Advanced)
 
+const advancedFindUncompletedTasks = () => {
+  return todoList.filter((todo) => todo.completed === false).map((todo) => todo.title);
+}
 
+const tasks = advancedFindUncompletedTasks();
+console.log(tasks);
 
   console.log("__________________");
   
