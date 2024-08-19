@@ -10,6 +10,12 @@ const myFirstPromise = new Promise((resolve, reject) => {
     }, 2000);
 })
 
+const mySecondPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Hello World')
+    }, 1000);
+  })
+
 async function myFirstPromiseFunction() {
     try {
         const response = await myFirstPromise;
@@ -20,3 +26,4 @@ async function myFirstPromiseFunction() {
 }
 
 myFirstPromiseFunction();
+

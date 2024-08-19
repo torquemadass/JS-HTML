@@ -24,10 +24,14 @@ downloadData()
 /*    
 or can be like this
 
-const DownloadProcess = async () => {
+const testDownloadProcess = async () => {
     try {
-    
-    }
+     const response = await downloadProcess();
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 
 }
@@ -39,3 +43,16 @@ console.log("________________________-");
 /*
   Practice 2: Create a Promise that mimics an API call to fetch user data. The Promise should resolve with a simulated user object "{ name: 'John Doe', age: 30 }" after a 2-second delay. How would you design this Promise, and what would the resolved output contain?
 */
+
+function getUser() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ name: 'John Doe', age: 30 })
+      }, 2000);
+    })
+  }
+  
+  getUser()
+    .then((user) => {
+      console.log(user);
+    })

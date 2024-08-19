@@ -255,7 +255,7 @@ const users = [
   
   console.log("Quiz No. 1");
 // V1
-const logUserNames = (user) => {
+const logUserNames = (user) => { //actually unnecessary for adding params
   return user.name;
 }
 
@@ -263,6 +263,15 @@ for (const user of users) {
   console.log(logUserNames(user));
   
 }
+
+// V2 (better) (void function since there is no return)
+function logUserNames() {
+  for (const user of users) {
+    console.log(user.name);  
+  }
+}
+
+logUserNames();
 
   console.log("--------------------");
   
@@ -297,6 +306,7 @@ for (const user of users) {
   
     console.log("Quiz No. 2");
   
+    // V1 (looping)
   function getUserByEmail(email) {
     let result;
 
@@ -311,6 +321,16 @@ for (const user of users) {
 
   console.log(getUserByEmail("jane.smith@example.com"));
   
+// V2 (find())
+const getUserByEmailArrow = () => {
+  const result = users.find((user) => {
+    return user.email === email;
+  });
+  
+  return result;
+}
+
+getUserByEmailArrow("jane.smith@example.com");
 
   console.log("--------------------");
   
@@ -396,11 +416,23 @@ for (const user of users) {
     ]
   */
   
-    console.log("Quiz No. 3");
+console.log("Quiz No. 3");
   
-  
+  const filterUsersByAge = (minAge, maxAge) => {
+    const result = users.filter((user) => {
+      if (user.age >= minAge && user.age <= maxAge) {
+        return true;
+      }
+    })
 
-  console.log("--------------------");
+    return result;
+  } 
+
+const usersByAgeRange = filterUsersByAge(25, 30);
+console.log(usersByAgeRange);
+
+
+console.log("--------------------");
   
   /*
     Quiz 4: 
@@ -443,7 +475,7 @@ console.log("--------------------");
 
 console.log("Quiz No. 5");
   
-  const findEmployeesInterest = () => {
+  const findEmployeesInterest = () => { //function is unecessary
     return users.filter((user) => user.interests.includes('photography')).map((user) => user.email);
   }
 

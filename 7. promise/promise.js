@@ -27,14 +27,15 @@ const processingOnBuying = new Promise((resolve, reject) => {
 })
 
 processingOnBuying
-    .then((item) => {
-        console.log("First .then");
-        console.log(item);
-        return item.name; 
-    })
-    .then((itemName) => {
-        console.log("Second .then");
-        console.log(itemName);
-        
-        
-    })
+  .then((item) => {
+    console.log('First .then');
+    console.log(item);
+    return item.name;
+  })
+  .then((itemName) => {
+    console.log('Second .then');
+    console.log(itemName);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
