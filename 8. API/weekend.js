@@ -13,9 +13,9 @@
 
 console.log("Quiz No. 1");
 
-async function simplePromise() {
+function simplePromise() {
     return new Promise((resolve, reject) => {
-        let random = Math.getRandom;
+        let random = Math.random();
         setTimeout(() => {
             if (random > 0.5) {
                 resolve("Promise Complete")
@@ -47,22 +47,36 @@ console.log("________________________");
 
 console.log(" Quiz No. 2");
 
-const paramPromise = new Promise((resolve, reject) => {
-    let result = "message";
+// Correct Version
+function paramPromise(message) {
+  return new Promise((resolve, reject) => {
+    if (message) {
+      resolve (message);
+    } else {
+      reject ("No message provided!");
+    }
+  })
+}
 
-    setTimeout(() => {
-        if(result) {
-            resolve(result)
-        } else {
-            reject("No Message Provided")
-        }
-    }, 1000);
-})
+paramPromise("Gutenmorgen").then((response) => console.log(response)).catch((error) => console.log(`Error: ${error}`).finally(() => console.log("Operation complete")
+))
 
-paramPromise
-    .then((response) => console.log(response))
-    .catch((error) => console.log(`Error: ${error}`))
-    .finally((response) => console.log("Operation complete"))
+// const paramPromise = new Promise((resolve, reject) => { (this is fault answer)
+//     let result = "message";
+
+//     setTimeout(() => {
+//         if(result) {
+//             resolve(result)
+//         } else {
+//             reject("No Message Provided")
+//         }
+//     }, 1000);
+// })
+
+// paramPromise
+//     .then((response) => console.log(response))
+//     .catch((error) => console.log(`Error: ${error}`))
+//     .finally(() => console.log("Operation complete"))
 
 console.log("________________________");
 
