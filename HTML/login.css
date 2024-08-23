@@ -11,60 +11,95 @@
     display: flex;
     justify-content: center;
     align-items: center;
-} 
-
-.text-white {
+  }
+  
+  .text-white {
     color: white;
-}
-
-.login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.login-container {
+  }
+  
+  .login-container {
     
-}
-
-.login-heading {
+  }
+  
+  .login-heading {
     display: flex;
     flex-direction: column;
     gap: 16px;
     justify-content: center;
     align-items: center;
     margin-bottom: 100px;
-}
-
-.login-heading-icon {
+  }
+  
+  .login-heading-icon {
     width: 103px;
-}
-
-.login-content {
+  }
+  
+  .login-content {
     display: flex;
-    gap: 36px;
-}
-
-.image-container {
+    gap: 120px;
+  }
+  
+  .image-container {
     
-}
-
-.form-container {
-    
-}
-
-.login-image {
+  }
+  
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-image {
     width: 400px;
-}
-
-.input-container {
+  }
+  
+  .login-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-}
-
-.form-input {
+    gap: 20px;
+  }
+  
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-input {
     border-radius: 6px;
     min-height: 36px;
-    width: 250px;
-}
+    width: 350px;
+    padding: 8px;
+  }
+  
+  .login-submit-button {
+    background-color: #FCC000;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 375px) {
+    .bg-dark {
+      padding: 40px 0 0 0;
+    }
+  
+    .login-content {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+  
+    .login-image {
+      width: 250px;
+    }
+  
+    .image-container {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .form-container {
+      padding: 0 0 100px 0;
+    }
+  }
