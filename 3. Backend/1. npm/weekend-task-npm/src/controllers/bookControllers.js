@@ -4,10 +4,11 @@ const seed = 100;
 class BookController {
     getBook = async (req, res) => {
         try {
-            const { limit = 10 } = req.query;
+            const { limit = 10 } = req.query;           
             const { data: { data : books }} = await axios.get(`https://fakerapi.it/api/v2/books?_quantity=${limit}&_seed=${seed}`);
 
-            res.send(books);
+            res.send(booksFound);
+
         } catch (error) {
             res.send(error);
         }
@@ -33,4 +34,4 @@ class BookController {
     }
 }
 
-export const bookController = new bookController();
+export const bookController = new BookController();

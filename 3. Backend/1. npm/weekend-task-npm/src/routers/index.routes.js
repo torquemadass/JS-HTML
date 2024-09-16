@@ -10,4 +10,4 @@ router.get("/", (req, res) => {
 router.get("/books", bookController.getBook);
 router.get("/books/:id", bookController.findBook);
 
-export default router
+export default router;
