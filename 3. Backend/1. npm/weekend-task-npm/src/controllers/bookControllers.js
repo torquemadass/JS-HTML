@@ -7,7 +7,7 @@ class BookController {
             const { limit = 10 } = req.query;           
             const { data: { data : books }} = await axios.get(`https://fakerapi.it/api/v2/books?_quantity=${limit}&_seed=${seed}`);
 
-            res.send(booksFound);
+            res.send(books);
 
         } catch (error) {
             res.send(error);
@@ -19,7 +19,7 @@ class BookController {
             res.setHeader("Publisher", "JavaScript Developer Class");
 
             const { id } = req.params;
-            const { data : { data : books} } = await axios.get(`https://fakerapi.it/api/v2/books?_quantity=${limit}&_seed=${seed}`);
+            const { data : { data : books} } = await axios.get(`https://fakerapi.it/api/v2/books?_quantity=${id}&_seed=${seed}`);
             const bookFound = books.at(-1);
 
             if(!bookFound) throw new Error("Book Not Found!");
