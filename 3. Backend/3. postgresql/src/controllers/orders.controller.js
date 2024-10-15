@@ -48,24 +48,24 @@ class OrderController {
     };
 
     // Get products by user ID
-    getUserProducts = async (req, res) => {
-        const { id } = req.params;
-        try {
-            const products = await pool.query(`
-                SELECT u.username, o.order_id, p.product_name, p.price, oi.quantity
-                FROM "Users" u
-                JOIN "Orders" o ON u.user_id = o.user_id
-                JOIN "Order_Items" oi ON o.order_id = oi.order_id
-                JOIN "Products" p ON oi.product_id = p.product_id
-                WHERE u.user_id = $1`, 
-                [id]
-            );
+    // getUserProducts = async (req, res) => {
+    //     const { id } = req.params;
+    //     try {
+    //         const products = await pool.query(`
+    //             SELECT u.username, o.order_id, p.product_name, p.price, oi.quantity
+    //             FROM "Users" u
+    //             JOIN "Orders" o ON u.user_id = o.user_id
+    //             JOIN "Order_Items" oi ON o.order_id = oi.order_id
+    //             JOIN "Products" p ON oi.product_id = p.product_id
+    //             WHERE u.user_id = $1`, 
+    //             [id]
+    //         );
 
-            res.status(200).json(products.rows);
-        } catch (error) {
-            res.status(500).json({ error: "Internal Server Error" });
-        }
-    };
+    //         res.status(200).json(products.rows);
+    //     } catch (error) {
+    //         res.status(500).json({ error: "Internal Server Error" });
+    //     }
+    // };
 }
 
 export const orderController = new OrderController();

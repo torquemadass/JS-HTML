@@ -21,7 +21,7 @@ router.delete("/products/:id", productController.deleteProduct);
 router.get("/products", productController.getProducts);
 
 // User products route
-router.get("/users/:id/products", orderController.getUserProducts);
+// router.get("/users/:id/products", orderController.getUserProducts);
 
 // Order route
 router.post("/users/:id/orders", orderController.addOrder);
