@@ -3,8 +3,8 @@ const prisma = new PrismaClient();
 
 class PostController {
   addPost = async (req, res) => {
-    try {
-      const { title, content, authorId } = req.body;
+      try {
+        const { title, content, authorId } = req.body;
       const addpost = await prisma.post.create({
         data: { title, content, authorId },
       });

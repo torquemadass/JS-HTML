@@ -23,7 +23,7 @@ router.put("/posts/:id", postController.updatePost);
 router.delete("/posts/:id", postController.deletePost);
 
 // Comment
-// router.post("/comments", commentController.createComment);
-// router.get("/comments", commentController.getComments);
+router.post("/comments", commentController.addComment);
+router.get("/comments", commentController.getComment);
 
 export default router;
