@@ -33,6 +33,8 @@ class PostController {
         include: { author: true, comments: true },
       });
       if (!post) return res.status(500).send("Post Not Found");
+      res.send(post);
+      
     } catch (error) {
       console.log(error);
       res.status(500).send("Failed to Find Post By ID");

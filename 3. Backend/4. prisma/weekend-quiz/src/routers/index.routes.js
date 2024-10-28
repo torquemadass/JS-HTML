@@ -1,29 +1,19 @@
 import express from "express";
-import { userController } from "../controller/user.controller.js";
-import { postController } from "../controller/post.controller.js";
-import { commentController } from "../controller/comment.controller.js";
+import userRouter from "./users.routes.js";
+import postRouter from "./posts.routes.js";
+import commentRouter from "./comments.routes.js";
+import { errorHandler } from "../middlewares/errorHandler.js";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.get("/", (req, res, next) => {
   res.send("Hello There");
 });
 
-// User
-router.post("/users", userController.addUser);
-router.get("/users", userController.getUsers);
-router.get("/users/:id", userController.findUserID);
-router.get("/users/:id/posts", userController.findUserPost);
+router.use("/users", userRouter);
+router.use("/posts", postRouter);
+router.use("/comments", commentRouter);
 
-// Post
-router.post("/posts", postController.addPost);
-router.get("/posts", postController.getPost);
-router.get("/posts/:id", postController.findPostID);
-router.put("/posts/:id", postController.updatePost);
-router.delete("/posts/:id", postController.deletePost);
-
-// Comment
-router.post("/comments", commentController.addComment);
-router.get("/comments", commentController.getComment);
+router.use(errorHandler);
 
 export default router;
