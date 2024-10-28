@@ -10,8 +10,7 @@ class PostController {
       });
       res.send(addpost);
     } catch (error) {
-      console.log(error);
-      res.status(500).send("Failed To Add Post");
+      next(error);
     }
   };
 
@@ -20,8 +19,7 @@ class PostController {
       const post = await prisma.post.findMany();
       res.send(post);
     } catch (error) {
-      console.log(error);
-      res.status(500).send("Failed to get Post");
+      next(error);
     }
   };
 
@@ -37,7 +35,7 @@ class PostController {
       
     } catch (error) {
       console.log(error);
-      res.status(500).send("Failed to Find Post By ID");
+      next(error);
     }
   };
 
@@ -51,8 +49,7 @@ class PostController {
       });
       res.send(updatePost);
     } catch (error) {
-      console.log(error);
-      res.status(500).send("Failed to Update Post");
+      next(error);
     }
   };
 
@@ -62,8 +59,7 @@ class PostController {
       const deletePost = await prisma.post.delete({ where: { id } });
       res.send(deletePost);
     } catch (error) {
-      console.log(error);
-      res.status(500).send("Failed to Delete Post");
+      next(error);
     }
   };
 }

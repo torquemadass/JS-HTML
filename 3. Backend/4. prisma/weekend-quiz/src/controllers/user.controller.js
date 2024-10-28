@@ -17,8 +17,7 @@ class UserController {
 
       res.status(201).send(newUser);
     } catch (error) {
-      console.log(error);
-      res.status(500).send("Internal Server Error");
+      next(error);
     }
   };
 
@@ -27,8 +26,7 @@ class UserController {
       const getUser = await prisma.user.findMany();
       res.send(getUser);
     } catch (error) {
-      console.log(error);
-      res.status(500).send("Internal Server Error");
+      next(error);
     }
   };
 
@@ -42,7 +40,7 @@ class UserController {
       res.send(userFound);
     } catch (error) {
       console.log(error);
-      res.status(500).send("Internal Server Error");
+      next(error);
     }
   };
 
@@ -52,8 +50,8 @@ class UserController {
         const userPost = await prisma.post.findMany({ where: { authorId: id }});
         res.status(userPost);
     } catch (error) {
-        console.log(error);
-        res.status(500).send("Internal Server Error")
+
+        next(error);
     }
   }
 }

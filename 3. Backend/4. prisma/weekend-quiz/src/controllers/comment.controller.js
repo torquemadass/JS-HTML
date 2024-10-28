@@ -11,8 +11,7 @@ class CommentController {
             })
             res.send(addcomment);
         } catch (error) {
-            console.log(error);
-            res.status(500).send("Failed to Add Comment");
+            next(error);
         }
     };
 
@@ -21,8 +20,7 @@ class CommentController {
             const comment = await prisma.comment.findMany();
             res.send(comment);
         } catch (error) {
-            console.log(error);
-            res.status(500).send("Failed to Get Comment");
+            next(error);
         }
     }
 }
