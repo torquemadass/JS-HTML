@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.get("/", (req, res, next) => {
   res.send("Hello There");
+  next();
 });
 
 router.use("/users", userRouter);

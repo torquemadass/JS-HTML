@@ -3,12 +3,12 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 class UserController {
-  addUser = async (req, res) => {
-    const { username, email, password } = req.body;
+  addUser = async (req, res, next) => {
+    const { username, email, password } = req.body;    
 
-    if (!username) return res.status(500).send("username is missing");
-    if (!email) return res.status(500).send("email is missing");
-    if (!password) return res.status(500).send("password is missing");
+    // if (!username) return res.status(500).send("username is missing");
+    // if (!email) return res.status(500).send("email is missing");
+    // if (!password) return res.status(500).send("password is missing");
 
     try {
       const newUser = await prisma.user.create({
@@ -17,11 +17,13 @@ class UserController {
 
       res.status(201).send(newUser);
     } catch (error) {
+      console.log(error);
+      
       next(error);
     }
   };
 
-  getUsers = async (req, res) => {
+  getUsers = async (req, res, next) => {
     try {
       const getUser = await prisma.user.findMany();
       res.send(getUser);
@@ -30,7 +32,7 @@ class UserController {
     }
   };
 
-  findUserID = async (req, res) => {
+  findUserID = async (req, res, next) => {
     try {
       const { id } = req.params;
 
@@ -44,14 +46,14 @@ class UserController {
     }
   };
 
-  findUserPost = async (req, res) => {
+  findUserPost = async (req, res, next) => {
     try {
         const { id } = req.params;
         const userPost = await prisma.post.findMany({ where: { authorId: id }});
         res.status(userPost);
     } catch (error) {
-
         next(error);
+
     }
   }
 }

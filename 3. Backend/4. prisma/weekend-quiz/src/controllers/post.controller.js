@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 class PostController {
-  addPost = async (req, res) => {
+  addPost = async (req, res, next) => {
       try {
         const { title, content, authorId } = req.body;
       const addpost = await prisma.post.create({
@@ -14,7 +14,7 @@ class PostController {
     }
   };
 
-  getPost = async (req, res) => {
+  getPost = async (req, res, next) => {
     try {
       const post = await prisma.post.findMany();
       res.send(post);
@@ -23,7 +23,7 @@ class PostController {
     }
   };
 
-  findPostID = async (req, res) => {
+  findPostID = async (req, res, next) => {
     try {
       const { id } = req.params;
       const post = await prisma.post.findUnique({
@@ -39,7 +39,7 @@ class PostController {
     }
   };
 
-  updatePost = async (req, res) => {
+  updatePost = async (req, res, next) => {
     try {
       const { id } = req.params;
       const { title, content } = req.body;
@@ -53,7 +53,7 @@ class PostController {
     }
   };
 
-  deletePost = async (req, res) => {
+  deletePost = async (req, res, next) => {
     try {
       const { id } = req.params;
       const deletePost = await prisma.post.delete({ where: { id } });
