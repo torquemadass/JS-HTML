@@ -9,5 +9,4 @@ router.get("/:id", profileController.getProfileID);
 router.put("/:id", profileController.updateProfileID);
 router.delete("/:id", profileController.deleteProfileID);
 
-
 export default router;
