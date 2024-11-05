@@ -4,7 +4,7 @@ import { generateAccessToken } from "../middlewares/jwt.js";
 
 const prisma = new PrismaClient();
 
-class userController {
+class UserController {
     async register(req, res, next) {
         try {
             const { email, password, role_id } = req.body;
@@ -80,4 +80,4 @@ class userController {
     }
 }
 
-export const userController = new userController();
+export const userController = new UserController();
