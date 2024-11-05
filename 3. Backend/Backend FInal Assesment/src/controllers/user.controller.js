@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import { comparePassword, hashPassword } from "../middlewares/errorHandler.js";
-import { generateAccessToken } from "../middlewares/jwt.js";
+import { comparePassword, hashPassword } from "../middlewares/bcrypt.js";
+// import { generateAccessToken } from "../middlewares/jwt.js";
 
 const prisma = new PrismaClient();
 
@@ -14,7 +14,7 @@ class UserController {
                 data: {
                     email,
                     password: hashedPassword,
-                    role_id
+                    role_id: parseInt(role_id)
                 }
             })
             res.status(201).json(user);
@@ -27,7 +27,7 @@ class UserController {
         try {
             const { email, password } = req.body;
             const user = await prisma.user.findUnique({ where: { email } });
-            if (!user || !(await bcrypt.compare(password, user.password))) return res.status(201).json({ message: "Invalid Credentials" });
+            if (!user || !(await comparePassword(password, user.password))) return res.status(201).json({ message: "Invalid Credentials" });
             const token = jwt.sign({ id: user.id, role_id: user.role_id }, process.env.JWT_SECRET);
             res.send({ token });
         } catch (error) {
@@ -59,9 +59,14 @@ class UserController {
     async updateUser(req, res, next) {
         try {
             const { id } = req.params;
+            const { email, password, role_id } = req.body;
             const updatedUser = await prisma.user.update({
                 where: { id: parseInt(id) },
-                data: req.body
+                data: {
+                    email,
+                    password,
+                    role_id: parseInt(role_id)
+                }
             });
             res.send(updatedUser);
         } catch (error) {

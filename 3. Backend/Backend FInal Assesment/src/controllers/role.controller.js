@@ -24,8 +24,9 @@ class RoleController {
     async getRolesID(req, res, next) {
         try {
             const { id } = req.params;
-            const roleId = await prisma.role.findMany({ where: id});
-            if (!roleId) return res.status(404).json("Roles Not Found");
+            const roleId = await prisma.role.findUnique({ where: { id: parseInt(id) } });
+            if (!roleId) return res.status(404).json({ message: "Role not found" });
+            res.json(roleId);
         } catch (error) {
             next(error);
         }
@@ -36,7 +37,7 @@ class RoleController {
             const { id } = req.params;
             const { name } = req.body;
             const updateRole = await prisma.role.update({
-                where: { id },
+                where: { id: parseInt(id) },
                 data: { name, updated_at: new Date() },
             });
             res.json(updateRole);
@@ -48,7 +49,7 @@ class RoleController {
     async deleteRole(req, res, next) {
         try {
             const { id } = req.params;
-            const deleteRole = await prisma.role.delete({ where: { id }});
+            const deleteRole = await prisma.role.delete({ where: { id: parseInt(id) }});
             res.json(deleteRole)
         } catch (error) {
             next(error);

@@ -6,12 +6,7 @@ import { errorHandler } from "../middlewares/errorHandler.js";
 
 const router = express.Router();
 
-router.get("/", req, res, next => {
-    res.send("Hello There");
-
-});
-
-router.use("/users", userRoutes);
+router.use("/user", userRoutes);
 router.use("/profile", profileRoutes);
 router.use("/role", roleRoutes);
 

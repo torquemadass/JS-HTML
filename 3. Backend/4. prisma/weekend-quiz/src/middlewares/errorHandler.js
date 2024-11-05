@@ -38,7 +38,7 @@ export const errorHandler = (err, req, res, next) => {
 
 /*
 ini testing punya sir agif
-*/
+* /
 // export const errorHandler = (err, req, res, next) => {
 //     let message = 'Internal Server Error';
 //     let status = 500;
@@ -66,6 +66,6 @@ ini testing punya sir agif
 //     res.status(status).send({ error: message });
 //   }
 
-
+*/
 
 export default errorHandler;
