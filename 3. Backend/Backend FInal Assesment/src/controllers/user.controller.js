@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import { comparePassword, hashPassword } from "../middlewares/bcrypt.js";
-// import { generateAccessToken } from "../middlewares/jwt.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const prisma = new PrismaClient();
 
@@ -8,8 +8,10 @@ class UserController {
     async register(req, res, next) {
         try {
             const { email, password, role_id } = req.body;
-            // const hashedPassword = await bcrypt.hash(password, 10); (without middleware)
-            const hashedPassword = await hashPassword(password);
+            const hashedPassword = await bcrypt.hash(password, 10); //bcrypt(without middleware)
+            console.log(hashedPassword);
+            
+            // const hashedPassword = await hashPassword(password);
             const user = await prisma.user.create({
                 data: {
                     email,
@@ -26,10 +28,19 @@ class UserController {
     async login(req, res, next) {
         try {
             const { email, password } = req.body;
-            const user = await prisma.user.findUnique({ where: { email } });
-            if (!user || !(await comparePassword(password, user.password))) return res.status(201).json({ message: "Invalid Credentials" });
-            const token = jwt.sign({ id: user.id, role_id: user.role_id }, process.env.JWT_SECRET);
-            res.send({ token });
+            let user;
+            user = await prisma.user.findUnique({ where: { email } });
+            if (!email) throw new Error("Email not found");
+            const validatedUser = await bcrypt.compare(password, user.password);
+            if (!validatedUser) throw new Error("Invalid password");
+
+            const payload = {
+                id: user.id,
+                email: user.email,
+                role_id: user.role_id 
+            };
+            const access_token = jwt.sign(payload, process.env.JWT_SECRET); 
+            res.status(200).json({ access_token });
         } catch (error) {
             next(error);
         }
