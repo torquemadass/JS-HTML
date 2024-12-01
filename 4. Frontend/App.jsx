@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "./components/Button";
-import Card from "./components/Card";
+import Button from "./react-wq/react-weekend-app/src/components/Button";
+import Card from "./react-wq/react-weekend-app/src/components/Card";
 
 export default function App() {
     const handleClick = (variant) => {
@@ -24,7 +24,7 @@ export default function App() {
 
             <section className="space-y-4">
                 <h2 className="text-xl font-bold">Card States</h2>
-                <div className=" flex grid-cols-2 gap-4 max-w-2xl">
+                <div className="grid grid-cols-2 gap-4 max-w-2xl">
                    <Card onClick={() => console.log("Default card clicked")}>
                     <div className="h-32 flex items-center justify-center text-gray-500 font-semibold">
                         Content Area (Default)
